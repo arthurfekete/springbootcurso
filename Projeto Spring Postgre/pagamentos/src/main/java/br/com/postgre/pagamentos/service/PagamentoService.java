@@ -1,6 +1,7 @@
 package br.com.postgre.pagamentos.service;
 
 import br.com.postgre.pagamentos.dto.PagamentoDto;
+import br.com.postgre.pagamentos.model.Pagamento;
 import br.com.postgre.pagamentos.model.Status;
 import br.com.postgre.pagamentos.repository.PagamentosRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
