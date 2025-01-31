@@ -1,6 +1,6 @@
-CREATE TABLE pagamentos1 (
+CREATE TABLE pagamentos (
     id BIGSERIAL PRIMARY KEY,
-    valor NUMERIC(19,2) NOT NULL,
+    valor DECIMAL(19,2) NOT NULL,
     nome VARCHAR(100) DEFAULT NULL,
     numero VARCHAR(19) DEFAULT NULL,
     expiracao VARCHAR(7) DEFAULT NULL,

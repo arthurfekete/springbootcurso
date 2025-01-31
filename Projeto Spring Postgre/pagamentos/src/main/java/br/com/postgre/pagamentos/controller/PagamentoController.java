@@ -14,7 +14,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/pagamentos")
 @RequiredArgsConstructor
-
 public class PagamentoController {
     private final PagamentoService service;
 
@@ -23,10 +22,9 @@ public class PagamentoController {
         return service.getAll();
     }
 
-    @GetMapping("/{id}") // Buscar por Id pelo @PathVariable
+    @GetMapping("/{id}") // Buscar por Id
     public ResponseEntity<PagamentoDto> BuscarPorId(@PathVariable @NotNull Long id){
         PagamentoDto dto = service.getByID(id);
-
         return ResponseEntity.ok(dto);
     }
 
@@ -34,11 +32,10 @@ public class PagamentoController {
     public ResponseEntity<PagamentoDto> cadastrar (@RequestBody @Valid PagamentoDto dto, UriComponentsBuilder uriBuilder){
         PagamentoDto pagamento = service.createPayment(dto);
         var uri = uriBuilder.path("/pagamentos/{id}").buildAndExpand(pagamento.getId()).toUri();
-
         return ResponseEntity.created(uri).body(pagamento);
     }
 
-    @PostMapping // Atualizar o registro dos pagamentos
+    @PutMapping("/{id}") // Atualizar o registro dos pagamentos
     public ResponseEntity<PagamentoDto> atualizarRegistro (@PathVariable @NotNull Long id, @RequestBody @Valid PagamentoDto dto){
         PagamentoDto pagamentoAtualizado = service.updatePayment(id, dto);
         return ResponseEntity.ok(pagamentoAtualizado);
