@@ -1,6 +1,6 @@
 package br.com.postgre.pagamentos.dto;
 
-import javax.transaction.Status;
+import br.com.postgre.pagamentos.model.Status;
 import lombok.Getter;
 import lombok.Setter;
 
